@@ -1,6 +1,11 @@
 const PI:f32 = 3.14;
 static mut GLOBAL:u8 = 1;
 
+fn soma(a:i32, b:i32) -> i32 {
+    println!("{} + {} = {}", a, b, a + b);
+    a + b
+}
+
 fn sombra(){
     let a = 123;
 
@@ -38,4 +43,25 @@ fn escopo() {
 fn main() {
     escopo();
     sombra();
+
+    println!("Soma: {}", soma(2, 2));
+
+    condicionais();
+}
+
+fn condicionais() {
+    let idade: u8 = 18;
+    let responsavel_autorizou = true;
+    let eh_maior = idade >=18;
+
+    if eh_maior {
+        println!("Pode entrar na balada");
+    } else if idade > 16 && responsavel_autorizou {
+        println!("Pode entrar com assinatura do responsável");
+    } else {
+        println!("Não pode entrar na balada");
+    }
+
+    let condicao = if eh_maior { "maior" } else { "menor" };
+    println!("É {} de idade", condicao);
 }
