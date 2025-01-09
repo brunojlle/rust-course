@@ -1,7 +1,21 @@
 const PI:f32 = 3.14;
 static mut GLOBAL:u8 = 1;
 
-fn main() {
+fn sombra(){
+    let a = 123;
+
+    {
+        let b = 456;
+        println!("Dentro B: {}", b);
+
+        let a = 789;
+        println!("Dentro A: {}", a);
+    }
+
+    println!("Fora A: {}", a);
+}
+
+fn escopo() {
     println!("O valor de PI é: {}", PI);
 
     unsafe {
@@ -19,4 +33,9 @@ fn main() {
 
     let letra:char = 'C';
     println!("tamanho do char = {}", std::mem::size_of_val(&letra));
+}
+
+fn main() {
+    escopo();
+    sombra();
 }
